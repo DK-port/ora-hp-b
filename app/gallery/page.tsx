@@ -17,7 +17,7 @@ export default function GalleryPage() {
               <ScrollFade key={n} delay={(i % 3) * 0.1}>
                 <div style={{ aspectRatio:"4/3", background:"#1a1a1a", overflow:"hidden" }}>
                   <img
-                    src={`/ora-hp-b/images/gallery/gallery-${String(n).padStart(2,"0")}.jpg`}
+                    src={`/images/gallery/gallery-${String(n).padStart(2,"0")}.jpg`}
                     alt={`店内の様子 ${n}`}
                     loading="lazy"
                     style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }}

@@ -9,7 +9,7 @@ export default function Home() {
       {/* ① ヒーロー動画 — フルスクリーン */}
       <section style={{ position:"relative", height:"100vh", minHeight:640, overflow:"hidden" }}>
         <video
-          src="/ora-hp-b/video/hero.mp4"
+          src="/video/hero.mp4"
           autoPlay muted loop playsInline
           style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover" }}
         />
@@ -147,12 +147,12 @@ export default function Home() {
             }}>
               {/* 大きい1枚 */}
               <div style={{ gridRow:"1 / 3", background:"#1e1e1e", minHeight:400, overflow:"hidden" }}>
-                <img src="/ora-hp-b/images/gallery/gallery-01.jpg" alt="店内の様子 1" loading="lazy"
+                <img src="/images/gallery/gallery-01.jpg" alt="店内の様子 1" loading="lazy"
                   style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
               </div>
               {[2,3,4,5].map(n => (
                 <div key={n} style={{ background:"#1a1a1a", aspectRatio:"4/3", overflow:"hidden" }}>
-                  <img src={`/ora-hp-b/images/gallery/gallery-0${n}.jpg`} alt={`店内の様子 ${n}`} loading="lazy"
+                  <img src={`/images/gallery/gallery-0${n}.jpg`} alt={`店内の様子 ${n}`} loading="lazy"
                     style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
                 </div>
               ))}
