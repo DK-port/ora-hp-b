@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import LogoType from "@/components/LogoType";
 import { usePathname } from "next/navigation";
+import { LINE_URL } from "@/lib/site";
 
 const navLinks = [
   { href:"/cast",    label:"CAST" },
@@ -71,11 +72,11 @@ export default function Header() {
           ))}
         </button>
 
-        <Link href="#" style={{
+        <a href={LINE_URL} target="_blank" rel="noopener noreferrer" style={{
           fontFamily:"var(--font-display)", fontSize:11, letterSpacing:"0.25em",
           background:"var(--color-gold)", color:"var(--color-dark)",
           padding:"11px 24px", flexShrink:0, transition:"background 0.3s",
-        }}>LINE 予約</Link>
+        }}>LINE 予約</a>
       </header>
 
       {menuOpen && (
@@ -90,10 +91,10 @@ export default function Header() {
               color:"var(--color-muted-dk)", paddingBottom:14, borderBottom:"1px solid #222",
             }}>{label}</Link>
           ))}
-          <Link href="#" style={{
+          <a href={LINE_URL} target="_blank" rel="noopener noreferrer" style={{
             textAlign:"center", background:"var(--color-gold)", color:"var(--color-dark)",
             fontFamily:"var(--font-display)", fontSize:11, letterSpacing:"0.25em", padding:"12px 24px",
-          }}>LINE 予約</Link>
+          }}>LINE 予約</a>
         </nav>
       )}
 

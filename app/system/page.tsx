@@ -1,6 +1,5 @@
-import Link from "next/link";
 import ScrollFade from "@/components/ScrollFade";
-import { pageMetadata } from "@/lib/site";
+import { LINE_URL, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/system",
@@ -59,7 +58,7 @@ export default function SystemPage() {
           <div style={{ textAlign:"center", paddingTop:32, borderTop:"1px solid var(--color-border-dk)" }}>
             <ScrollFade>
               <p style={{ fontFamily:"var(--font-display)", fontSize:16, letterSpacing:"0.1em", color:"var(--color-muted-dk)", marginBottom:28 }}>ご予約・お問い合わせはこちら</p>
-              <Link href="#" className="btn btn-fill">LINE で予約する</Link>
+              <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn-fill">LINE で予約する</a>
             </ScrollFade>
           </div>
         </div>

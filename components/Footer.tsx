@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LogoType from "@/components/LogoType";
+import { LINE_URL } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -33,7 +34,7 @@ export default function Footer() {
         <div style={{ display: "flex", gap: 20 }}>
           {[
             { href: "https://www.instagram.com/penguin.5505272/", label: "Instagram" },
-            { href: "#", label: "LINE" },
+            { href: LINE_URL, label: "LINE" },
           ].map(({ href, label }) => (
             // 外部リンクは新しいタブで開く（next/link はサイト内の移動用）
             <a key={label} href={href}

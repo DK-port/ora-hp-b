@@ -4,6 +4,13 @@ export const SITE_URL = "https://ora-tokyo.com";
 export const SITE_NAME = "O-RA ～TOKYO～";
 
 /**
+ * 公式 LINE「O-RA TOKYO」（@868jajha）の友だち追加 URL。
+ * 予約ボタン・フッターなど LINE へのリンクはすべてこれを使う（直書きすると変更時に漏れる）。
+ * lin.ee の短縮 URL にしているのは、LINE の管理画面で「URL 経由の友だち追加」として数えられるため。
+ */
+export const LINE_URL = "https://lin.ee/ZX7xbqN";
+
+/**
  * OG 画像（LINE や SNS で URL を送ったときのプレビュー）。scripts/make-og-image.py で生成する。
  *
  * LINE や Facebook は URL 単位でプレビューを長くキャッシュするので、

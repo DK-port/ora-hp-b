@@ -1,6 +1,5 @@
-import Link from "next/link";
 import ScrollFade from "@/components/ScrollFade";
-import { pageMetadata } from "@/lib/site";
+import { LINE_URL, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/access",
@@ -53,7 +52,7 @@ export default function AccessPage() {
                 <a href="tel:08023861671" style={{ fontFamily:"var(--font-serif)", fontSize:28, fontWeight:200, letterSpacing:"0.15em", color:"var(--color-gold)" }}>080-2386-1671</a>
                 <small style={{ display:"block", marginTop:8, fontSize:11, color:"var(--color-dim)" }}>営業時間内にお気軽にどうぞ</small>
               </div>
-              <Link href="#" className="btn btn-fill" style={{ display:"block", textAlign:"center" }}>LINE でご予約</Link>
+              <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn-fill" style={{ display:"block", textAlign:"center" }}>LINE でご予約</a>
             </ScrollFade>
           </div>
         </div>
