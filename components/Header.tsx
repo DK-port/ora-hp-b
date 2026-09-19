@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import LogoType from "@/components/LogoType";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
@@ -36,11 +37,10 @@ export default function Header() {
         backdropFilter: showDark ? "blur(12px)" : "none",
         transition:"background 0.5s ease, border-color 0.5s ease",
       }}>
-        <Link href="/" style={{
-          fontFamily:"var(--font-display)", fontSize:18, fontWeight:300,
-          letterSpacing:"0.5em", color: showDark ? "var(--color-gold)" : "#fff",
+        <Link href="/" aria-label="O-RA ～TOKYO～ トップへ" style={{
+          display:"inline-flex", color: showDark ? "var(--color-gold)" : "#fff",
           flexShrink:0, transition:"color 0.5s",
-        }}>O · R · A</Link>
+        }}><LogoType size={28} /></Link>
 
         <nav style={{ display:"flex", gap:44, margin:"0 auto" }} className="hdr-nav">
           {navLinks.map(({href,label}) => (

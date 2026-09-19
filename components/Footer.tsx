@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LogoType from "@/components/LogoType";
 
 export default function Footer() {
   return (
@@ -10,10 +11,9 @@ export default function Footer() {
         maxWidth: "var(--inner-w)", margin: "0 auto", padding: "0 48px",
         display: "flex", flexDirection: "column", alignItems: "center", gap: 32,
       }}>
-        <p style={{
-          fontFamily: "var(--font-serif)", fontSize: 22, fontWeight: 200,
-          letterSpacing: "0.4em", color: "var(--color-gold)",
-        }}>O · R · A ～ TOKYO ～</p>
+        <div style={{ color: "var(--color-gold)" }}>
+          <LogoType size={44} />
+        </div>
 
         <nav style={{ display: "flex", gap: 32, flexWrap: "wrap", justifyContent: "center" }}>
           {[
