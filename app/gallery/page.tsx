@@ -1,6 +1,12 @@
 import ScrollFade from "@/components/ScrollFade";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = { title: "GALLERY | O-RA ～TOKYO～" };
+export const metadata = pageMetadata({
+  path: "/gallery",
+  title: "GALLERY | O-RA ～TOKYO～",
+  description:
+    "O-RA ～TOKYO～ の店内の様子をご覧いただけます。",
+});
 
 export default function GalleryPage() {
   const photos = [...Array(9)].map((_, i) => i + 1);

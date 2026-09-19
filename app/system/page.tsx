@@ -1,7 +1,13 @@
 import Link from "next/link";
 import ScrollFade from "@/components/ScrollFade";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = { title: "SYSTEM | O-RA ～TOKYO～" };
+export const metadata = pageMetadata({
+  path: "/system",
+  title: "SYSTEM | O-RA ～TOKYO～",
+  description:
+    "O-RA ～TOKYO～ の料金システム。初回40分 ¥4,000、延長20分 ¥2,000、場内指名 ¥1,500。",
+});
 
 const rows = [
   { section:"初回料金", items:[["40分","¥4,000"]] },

@@ -1,7 +1,13 @@
 import Link from "next/link";
 import ScrollFade from "@/components/ScrollFade";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = { title: "ACCESS | O-RA ～TOKYO～" };
+export const metadata = pageMetadata({
+  path: "/access",
+  title: "ACCESS | O-RA ～TOKYO～",
+  description:
+    "O-RA ～TOKYO～ へのアクセス。JR神田駅徒歩2分、東京メトロ銀座線 神田駅徒歩3分。東京都千代田区鍛冶町1-6-2 林ビル3階。",
+});
 
 const info = [
   ["店名", "O-RA ～TOKYO～"],

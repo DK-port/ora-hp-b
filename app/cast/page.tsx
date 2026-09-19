@@ -1,7 +1,13 @@
 import ScrollFade from "@/components/ScrollFade";
 import { casts } from "@/data/cast";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = { title: "CAST | O-RA ～TOKYO～" };
+export const metadata = pageMetadata({
+  path: "/cast",
+  title: "CAST | O-RA ～TOKYO～",
+  description:
+    "O-RA ～TOKYO～ の在籍キャストをご紹介します。",
+});
 
 export default function CastPage() {
   return (

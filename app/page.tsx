@@ -1,6 +1,14 @@
 import Link from "next/link";
 import ScrollFade from "@/components/ScrollFade";
 import { casts } from "@/data/cast";
+import { pageMetadata } from "@/lib/site";
+
+export const metadata = pageMetadata({
+  path: "/",
+  title: "O-RA ～TOKYO～ | 東京の夜を、あなただけの時間へ",
+  description:
+    "O-RA ～TOKYO～ 接待・会食・特別なひとときをご提供する東京のエンターテインメントダイニング。JR神田駅徒歩2分、19:00〜翌5:00営業。",
+});
 
 export default function Home() {
   return (

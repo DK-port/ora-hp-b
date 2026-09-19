@@ -1,6 +1,12 @@
 import ScrollFade from "@/components/ScrollFade";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = { title: "NEWS | O-RA ～TOKYO～" };
+export const metadata = pageMetadata({
+  path: "/news",
+  title: "NEWS | O-RA ～TOKYO～",
+  description:
+    "O-RA ～TOKYO～ からのお知らせ。",
+});
 
 const news = [
   { id:1, date:"2025-06-01", category:"お知らせ", title:"O-RA ～TOKYO～ グランドオープンのご案内", body:"この度、O-RA ～TOKYO～ はグランドオープンを迎えました。皆様のご来店を心よりお待ちしております。" },
