@@ -32,13 +32,16 @@ export default function Footer() {
 
         <div style={{ display: "flex", gap: 20 }}>
           {[
-            { href: "#", label: "Instagram" },
+            { href: "https://www.instagram.com/penguin.5505272/", label: "Instagram" },
             { href: "#", label: "LINE" },
           ].map(({ href, label }) => (
-            <Link key={label} href={href} style={{
-              fontSize: 11, letterSpacing: "0.15em", color: "var(--color-muted)",
-              border: "1px solid var(--color-dim)", padding: "6px 18px",
-            }}>{label}</Link>
+            // 外部リンクは新しいタブで開く（next/link はサイト内の移動用）
+            <a key={label} href={href}
+              {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              style={{
+                fontSize: 11, letterSpacing: "0.15em", color: "var(--color-muted)",
+                border: "1px solid var(--color-dim)", padding: "6px 18px",
+              }}>{label}</a>
           ))}
         </div>
 
