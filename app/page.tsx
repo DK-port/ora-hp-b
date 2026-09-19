@@ -37,7 +37,7 @@ export default function Home() {
             fontFamily:"var(--font-display)", fontWeight:300,
             fontSize:"clamp(52px,9vw,110px)", letterSpacing:"0.2em",
             color:"#fff", lineHeight:1, marginBottom:16,
-          }}>O-RA</h1>
+          }}>O<span className="hero-hyphen">-</span>RA</h1>
           <p style={{ fontFamily:"var(--font-display)", fontSize:"clamp(14px,2vw,22px)", letterSpacing:"0.7em", color:"rgba(255,255,255,0.6)", marginBottom:52 }}>
             ～ TOKYO ～
           </p>
@@ -55,6 +55,10 @@ export default function Home() {
         </div>
         <style>{`
           @keyframes heroFade { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+          /* Cormorant Garamond のハイフンは右上がりに約10°傾いた形なので、文字は透明にして水平の線を重ねる。
+             線の寸法は元のハイフン（幅 0.267em・太さ 0.039em・中心の高さ）を測って合わせた。字間とテキスト（O-RA）は元のまま */
+          .hero-hyphen { position:relative; color:transparent; }
+          .hero-hyphen::after { content:""; position:absolute; left:0.028em; width:0.267em; top:0.694em; height:0.039em; background:#fff; }
           @keyframes scrollLine {
             0%{transform:scaleY(0);transform-origin:top;}
             50%{transform:scaleY(1);transform-origin:top;}
