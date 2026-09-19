@@ -13,4 +13,6 @@ export const casts: Cast[] = [
   { id:4, name:"さくら",catch:"洗練された会話で特別な一夜を", profile:"知的な会話と細やかな気配りが強み。接待のシーンでお客様からの信頼も厚いキャストです。", img:"/images/cast/cast-04.jpg" },
   { id:5, name:"ゆい",  catch:"いつも笑顔でお待ちしています", profile:"天真爛漫な笑顔と明るいトークで、あっという間に時間が過ぎてしまいます。", img:"/images/cast/cast-05.jpg" },
   { id:6, name:"なな",  catch:"あなただけの特別な時間を", profile:"落ち着いた佇まいと上品な話し方で、特別なシーンを彩ります。", img:"/images/cast/cast-06.jpg" },
+  // ブランドロゴ（完全版）のカード。画像は scripts/make-logo-cast.py で生成する
+  { id:7, name:"O-RA",  catch:"O-RA ～TOKYO～ へようこそ", profile:"お店のロゴの女の子です。", img:"/images/cast/cast-07.jpg" },
 ];
