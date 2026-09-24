@@ -1,8 +1,13 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import LogoType from "@/components/LogoType";
 import { LINE_URL } from "@/lib/site";
 
 export default function Footer() {
+  // 英語ページでは日本語ページへのナビを並べず、言語の切り替えだけにする。
+  // 静的な HTML をそのまま配信すると /en.html になることがあるので、拡張子を落として比べる
+  const isEn = usePathname().replace(/\.html$/, "") === "/en";
   return (
     <footer style={{
       background: "#060606", borderTop: "1px solid var(--color-border)",
@@ -17,12 +22,18 @@ export default function Footer() {
         </div>
 
         <nav style={{ display: "flex", gap: 32, flexWrap: "wrap", justifyContent: "center" }}>
-          {[
+          {isEn ? (
+            <Link href="/" style={{
+              fontSize: 11, letterSpacing: "0.15em", color: "var(--color-muted-dk)",
+              borderBottom: "1px solid var(--color-border-dk)", paddingBottom: 3,
+            }}>日本語のページへ / Japanese</Link>
+          ) : [
             { href: "/cast", label: "CAST" },
             { href: "/system", label: "SYSTEM" },
             { href: "/gallery", label: "GALLERY" },
             { href: "/access", label: "ACCESS" },
             { href: "/news", label: "NEWS" },
+            { href: "/en", label: "EN" },
           ].map(({ href, label }) => (
             <Link key={href} href={href} style={{
               fontSize: 11, letterSpacing: "0.2em", color: "var(--color-muted)",

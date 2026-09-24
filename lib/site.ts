@@ -60,15 +60,24 @@ export function pageMetadata({
   path,
   title,
   description,
+  locale,
 }: {
   path: string;
   title: string;
   description: string;
+  /** 日本語以外のページで上書きする（英語ページは "en_US"） */
+  locale?: string;
 }): Metadata {
   return {
     title,
     description,
     alternates: { canonical: path },
-    openGraph: { ...baseOpenGraph, title, description, url: path },
+    openGraph: {
+      ...baseOpenGraph,
+      ...(locale ? { locale } : {}),
+      title,
+      description,
+      url: path,
+    },
   };
 }
