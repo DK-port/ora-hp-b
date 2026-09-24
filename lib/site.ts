@@ -11,6 +11,15 @@ export const SITE_NAME = "O-RA ～TOKYO～";
 export const LINE_URL = "https://lin.ee/ZX7xbqN";
 
 /**
+ * 店の電話番号（店電）。2026-09-24 に DK から受領。
+ * 表示用とリンク用（tel: はハイフンなし）で形が違うので両方持つ。
+ */
+export const TEL = {
+  display: "03-5297-0261",
+  href: "tel:0352970261",
+};
+
+/**
  * OG 画像（LINE や SNS で URL を送ったときのプレビュー）。scripts/make-og-image.py で生成する。
  *
  * LINE や Facebook は URL 単位でプレビューを長くキャッシュするので、

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ScrollFade from "@/components/ScrollFade";
 import { casts } from "@/data/cast";
-import { pageMetadata } from "@/lib/site";
+import { TEL, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/",
@@ -189,7 +189,7 @@ export default function Home() {
                   ["最寄り駅","JR「神田駅」徒歩2分"],
                   ["営業時間","19:00 〜 翌 5:00"],
                   ["定休日","年中無休"],
-                  ["TEL","080-2386-1671"],
+                  ["TEL",TEL.display],
                 ].map(([dt,dd]) => (
                   <div key={dt} style={{ display:"contents" }}>
                     <dt style={{ fontSize:10, letterSpacing:"0.25em", color:"var(--color-gold)", fontFamily:"var(--font-display)", paddingTop:4 }}>{dt}</dt>
