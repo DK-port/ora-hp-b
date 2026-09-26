@@ -99,7 +99,7 @@ export default function EnglishPage() {
               </table>
               <p className="en-note">
                 — Tax 10%, service charge 10% and table charge 10% are added to the above.<br />
-                — Cash only.<br />
+                — The 10% table charge is waived for cash payments.<br />
                 — Guests must be 20 years or older.
               </p>
             </div>

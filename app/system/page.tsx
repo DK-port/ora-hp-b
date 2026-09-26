@@ -46,7 +46,7 @@ export default function SystemPage() {
             <div style={{ padding:"28px 32px", border:"1px solid var(--color-border-dk)", background:"var(--color-dark-2)", marginBottom:48 }}>
               <p style={{ fontSize:12, letterSpacing:"0.25em", color:"var(--color-gold)", marginBottom:12 }}>ご注意事項</p>
               <ul style={{ display:"flex", flexDirection:"column", gap:8 }}>
-                {["税 10%","サービス料 10%","T.C 10%","現金払いのみ（T.C 10%サービス）","20歳未満の方のご入場はお断りしております"].map(item => (
+                {["税 10%","サービス料 10%","T.C 10%","現金でのお支払いの場合は T.C 10% をサービスいたします","20歳未満の方のご入場はお断りしております"].map(item => (
                   <li key={item} style={{ fontSize:13, color:"var(--color-muted-dk)", paddingLeft:16, position:"relative" }}>
                     <span style={{ position:"absolute", left:0, color:"var(--color-dim)" }}>—</span>{item}
                   </li>
