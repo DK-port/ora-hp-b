@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ScrollFade from "@/components/ScrollFade";
 import { casts } from "@/data/cast";
-import { TEL, pageMetadata } from "@/lib/site";
+import { TEL, galleryPhoto, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/",
@@ -160,12 +160,12 @@ export default function Home() {
               {/* 大きい1枚。写真は枠に敷くだけにして、枠の高さを写真に合わせない
                   （縦の写真だと行が縦に伸び、右の4枚の下に隙間が出た。2026-10-09 実写に差し替えたとき） */}
               <div style={{ gridRow:"1 / 3", background:"#1e1e1e", minHeight:400, overflow:"hidden", position:"relative" }}>
-                <img src="/images/gallery/gallery-01.jpg" alt="店内の様子 1" loading="lazy"
+                <img src={galleryPhoto(1)} alt="店内の様子 1" loading="lazy"
                   style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
               </div>
               {[2,3,4,5].map(n => (
                 <div key={n} style={{ background:"#1a1a1a", aspectRatio:"4/3", overflow:"hidden" }}>
-                  <img src={`/images/gallery/gallery-0${n}.jpg`} alt={`店内の様子 ${n}`} loading="lazy"
+                  <img src={galleryPhoto(n)} alt={`店内の様子 ${n}`} loading="lazy"
                     style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
                 </div>
               ))}

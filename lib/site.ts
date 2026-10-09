@@ -34,6 +34,18 @@ export const OG_IMAGE = {
 };
 
 /**
+ * ギャラリーの写真（public/images/gallery/gallery-NN.jpg）の URL。トップとギャラリーの両方で使う。
+ *
+ * 写真は max-age=14400 で配っているので、同じ名前のまま中身を差し替えると、一度見たブラウザは
+ * 前の写真を出し続ける（2026-10-10 実写に差し替えたとき、動画は消えたのに写真が変わらなかった）。
+ * 写真を差し替えたら GALLERY_VERSION を上げて URL を変える。
+ */
+const GALLERY_VERSION = 2;
+export function galleryPhoto(n: number) {
+  return `/images/gallery/gallery-${String(n).padStart(2, "0")}.jpg?v=${GALLERY_VERSION}`;
+}
+
+/**
  * 全ページ共通の Open Graph 項目。url はページごとに違うのでここには置かない。
  *
  * 画像もここに含める。app/opengraph-image.jpg（ファイル規約）に置くと、子ページで

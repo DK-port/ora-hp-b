@@ -1,5 +1,5 @@
 import GalleryGrid, { type GalleryItem } from "@/components/GalleryGrid";
-import { pageMetadata } from "@/lib/site";
+import { galleryPhoto, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/gallery",
@@ -11,7 +11,7 @@ export const metadata = pageMetadata({
 // 写真は 2026-10-07 にカメラマンが撮った店内（10/9 に仮の画像から差し替え）。
 // 先頭にあった PR 動画（浮世絵）は 10/10 に外した（DK「動画は削除」）
 const items: GalleryItem[] = [...Array(7)].map((_, i) => ({
-  src: `/images/gallery/gallery-${String(i + 1).padStart(2, "0")}.jpg`,
+  src: galleryPhoto(i + 1),
   alt: `店内の様子 ${i + 1}`,
 }));
 
