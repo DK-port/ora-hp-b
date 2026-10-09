@@ -8,14 +8,14 @@ export const metadata = pageMetadata({
     "O-RA ～TOKYO～ の店内の様子と PR 動画をご覧いただけます。",
 });
 
-// 先頭はサイネージで流している PR 動画。写真はカメラマンの撮影分に差し替える予定（今は仮の画像）
+// 先頭はサイネージで流している PR 動画。写真は 2026-10-07 にカメラマンが撮った店内（10/9 に仮の画像から差し替え）
 const items: GalleryItem[] = [
   {
     src: "/images/gallery/pr-ukiyoe.jpg",
     alt: "PR動画 オーラ三十六景 神田の夜",
     video: "/videos/pr-ukiyoe.mp4",
   },
-  ...[...Array(9)].map((_, i) => ({
+  ...[...Array(7)].map((_, i) => ({
     src: `/images/gallery/gallery-${String(i + 1).padStart(2, "0")}.jpg`,
     alt: `店内の様子 ${i + 1}`,
   })),

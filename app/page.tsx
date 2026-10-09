@@ -157,10 +157,11 @@ export default function Home() {
               gridTemplateRows:"auto auto",
               gap:8, marginBottom:64,
             }}>
-              {/* 大きい1枚 */}
-              <div style={{ gridRow:"1 / 3", background:"#1e1e1e", minHeight:400, overflow:"hidden" }}>
+              {/* 大きい1枚。写真は枠に敷くだけにして、枠の高さを写真に合わせない
+                  （縦の写真だと行が縦に伸び、右の4枚の下に隙間が出た。2026-10-09 実写に差し替えたとき） */}
+              <div style={{ gridRow:"1 / 3", background:"#1e1e1e", minHeight:400, overflow:"hidden", position:"relative" }}>
                 <img src="/images/gallery/gallery-01.jpg" alt="店内の様子 1" loading="lazy"
-                  style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
+                  style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
               </div>
               {[2,3,4,5].map(n => (
                 <div key={n} style={{ background:"#1a1a1a", aspectRatio:"4/3", overflow:"hidden" }}>
