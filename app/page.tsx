@@ -151,15 +151,11 @@ export default function Home() {
           <ScrollFade><span className="section-eyebrow">GALLERY</span></ScrollFade>
           <ScrollFade delay={0.15}><h2 className="section-title" style={{ color:"var(--color-text-dark)" }}>ギャラリー</h2></ScrollFade>
           <ScrollFade>
-            <div style={{
-              display:"grid",
-              gridTemplateColumns:"2fr 1fr 1fr",
-              gridTemplateRows:"auto auto",
-              gap:8, marginBottom:64,
-            }}>
+            {/* 並び方（PC とモバイルで違う）は globals.css の .home-gallery */}
+            <div className="home-gallery">
               {/* 大きい1枚。写真は枠に敷くだけにして、枠の高さを写真に合わせない
                   （縦の写真だと行が縦に伸び、右の4枚の下に隙間が出た。2026-10-09 実写に差し替えたとき） */}
-              <div style={{ gridRow:"1 / 3", background:"#1e1e1e", minHeight:400, overflow:"hidden", position:"relative" }}>
+              <div className="home-gallery-main" style={{ background:"#1e1e1e", overflow:"hidden", position:"relative" }}>
                 <img src={galleryPhoto(1)} alt="店内の様子 1" loading="lazy"
                   style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
               </div>

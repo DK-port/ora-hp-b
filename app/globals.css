@@ -144,8 +144,22 @@ ul, ol { list-style: none; }
   align-items: start;
 }
 
+/* トップのギャラリー — PC は左に大きい1枚（右の2段分）と右に4枚。
+   モバイルは上に大きい1枚（全幅）と下に 2×2（PC の形のままだと右の4枚が小さく、
+   大きい1枚の最低の高さのぶん右に隙間が出た。2026-10-10 DK「スマホのバランス調整して」） */
+.home-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 8px;
+  margin-bottom: 64px;
+}
+.home-gallery-main { grid-row: 1 / 3; min-height: 400px; }
+
 @media (max-width: 768px) {
   :root { --section-pad: 80px; }
   .section-inner { padding: 0 28px; }
   .two-col { grid-template-columns: 1fr; gap: 40px !important; }
+  .home-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .home-gallery-main { grid-row: auto; grid-column: 1 / -1; min-height: 0; aspect-ratio: 4 / 3; }
 }
