@@ -40,7 +40,7 @@ export const OG_IMAGE = {
  * 前の写真を出し続ける（2026-10-10 実写に差し替えたとき、動画は消えたのに写真が変わらなかった）。
  * 写真を差し替えたら GALLERY_VERSION を上げて URL を変える。
  */
-const GALLERY_VERSION = 2;
+const GALLERY_VERSION = 3;   // 3: 2026-10-10 gallery-01 の鏡の写り込みを消した版に
 export function galleryPhoto(n: number) {
   return `/images/gallery/gallery-${String(n).padStart(2, "0")}.jpg?v=${GALLERY_VERSION}`;
 }
