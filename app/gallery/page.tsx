@@ -8,9 +8,10 @@ export const metadata = pageMetadata({
     "O-RA ～TOKYO～ の店内の様子をご覧いただけます。",
 });
 
-// 写真は 2026-10-07 にカメラマンが撮った店内（10/9 に仮の画像から差し替え）。
+// 写真は 2026-10-07 にカメラマンが撮った店内（10/9 に仮の画像から差し替え。
+// 10/11 にポールダンスの2枚（08・09）を足して9枚）。
 // 先頭にあった PR 動画（浮世絵）は 10/10 に外した（DK「動画は削除」）
-const items: GalleryItem[] = [...Array(7)].map((_, i) => ({
+const items: GalleryItem[] = [...Array(9)].map((_, i) => ({
   src: galleryPhoto(i + 1),
   alt: `店内の様子 ${i + 1}`,
 }));
