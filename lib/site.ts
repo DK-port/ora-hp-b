@@ -52,7 +52,7 @@ export function galleryPhoto(n: number) {
  * （2026-10-12 最初の版に戻したとき、スマホに数日前の AI の仮動画が出た）。
  * 動画を差し替えたら HERO_VERSION を上げて URL を変える。
  */
-const HERO_VERSION = 2;   // 2: 2026-10-12 撮影の内観3カット（7.8秒）
+const HERO_VERSION = 3;   // 3: 2026-10-12 同じ3カットに色 C（深紅と金・周りを落とす）
 export const HERO_VIDEO = `/video/hero.mp4?v=${HERO_VERSION}`;
 export const HERO_POSTER = `/images/hero-poster.jpg?v=${HERO_VERSION}`;
 
