@@ -84,7 +84,7 @@ export default function Header() {
           padding:"9px 16px", marginRight:12, flexShrink:0,
         }}>日本語</Link>}
 
-        <a href={LINE_URL} target="_blank" rel="noopener noreferrer" style={{
+        <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="hdr-cta" style={{
           fontFamily:"var(--font-display)", fontSize:11, letterSpacing:"0.25em",
           background:"var(--color-gold)", color:"var(--color-dark)",
           padding:"11px 24px", flexShrink:0, transition:"background 0.3s",
@@ -117,6 +117,12 @@ export default function Header() {
           .hdr-nav{display:none!important;}
           .hdr-ham{display:flex!important;}
           header{padding:0 28px!important;}
+        }
+        /* 360px の端末ではロゴ・ハンバーガー・予約ボタンが入りきらず、
+           ページが横にスクロールできてしまっていた（2026-10-12 実測） */
+        @media(max-width:380px){
+          header{padding:0 18px!important;}
+          .hdr-cta{padding:11px 16px!important; letter-spacing:0.15em!important;}
         }
       `}</style>
     </>

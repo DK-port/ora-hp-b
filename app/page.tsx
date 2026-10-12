@@ -121,14 +121,17 @@ export default function Home() {
           <ScrollFade><span className="section-eyebrow" style={{ color:"var(--color-muted-lt)" }}>SYSTEM</span></ScrollFade>
           <ScrollFade delay={0.15}><h2 className="section-title section-title-dark">料金・システム</h2></ScrollFade>
           <ScrollFade>
+            {/* 1fr は中身より小さくならないので、スマホで3列が収まらず横にはみ出した
+                （390px で scrollWidth 397px。2026-10-12）。minmax(0,1fr) で縮むようにする */}
             <div style={{
-              display:"grid", gridTemplateColumns:"repeat(3,1fr)",
+              display:"grid", gridTemplateColumns:"repeat(3,minmax(0,1fr))",
               borderTop:"1px solid var(--color-border-lt)",
               marginBottom:64,
             }}>
               {[["初回料金","40分 ¥4,000"],["延長料金","20分 ¥2,000"],["指名料","¥1,500〜"]].map(([label,price],i) => (
                 <div key={label} style={{
-                  padding:"56px 40px", textAlign:"center",
+                  // 画面が狭いときは左右の余白を詰める（40px×2×3列 だとスマホで入らない）
+                  padding:"clamp(36px,7vw,56px) clamp(10px,3vw,40px)", textAlign:"center",
                   borderRight: i < 2 ? "1px solid var(--color-border-lt)" : "none",
                 }}>
                   <p style={{ fontFamily:"var(--font-display)", fontSize:10, letterSpacing:"0.4em", color:"var(--color-gold)", marginBottom:20 }}>{label}</p>
