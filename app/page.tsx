@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HeroVideo from "@/components/HeroVideo";
 import ScrollFade from "@/components/ScrollFade";
 import { casts } from "@/data/cast";
 import { TEL, galleryPhoto, pageMetadata } from "@/lib/site";
@@ -16,11 +17,8 @@ export default function Home() {
 
       {/* ① ヒーロー動画 — フルスクリーン */}
       <section style={{ position:"relative", height:"100vh", minHeight:640, overflow:"hidden" }}>
-        <video
-          src="/video/hero.mp4"
-          autoPlay muted loop playsInline
-          style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover" }}
-        />
+        {/* スマホには縦、それより広い画面には横を出す（components/HeroVideo.tsx） */}
+        <HeroVideo />
         <div style={{
           position:"absolute", inset:0,
           background:"linear-gradient(to bottom, rgba(14,14,14,0.25) 0%, rgba(14,14,14,0.6) 70%, rgba(14,14,14,0.9) 100%)",
