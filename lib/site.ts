@@ -46,6 +46,17 @@ export function galleryPhoto(n: number) {
 }
 
 /**
+ * トップのヒーローの動画と、読み込み前に出す静止画の URL。
+ *
+ * 写真と同じく max-age=14400 で配っているので、同じ名前のまま差し替えると前の動画が出続ける
+ * （2026-10-12 最初の版に戻したとき、スマホに数日前の AI の仮動画が出た）。
+ * 動画を差し替えたら HERO_VERSION を上げて URL を変える。
+ */
+const HERO_VERSION = 2;   // 2: 2026-10-12 撮影の内観3カット（7.8秒）
+export const HERO_VIDEO = `/video/hero.mp4?v=${HERO_VERSION}`;
+export const HERO_POSTER = `/images/hero-poster.jpg?v=${HERO_VERSION}`;
+
+/**
  * 全ページ共通の Open Graph 項目。url はページごとに違うのでここには置かない。
  *
  * 画像もここに含める。app/opengraph-image.jpg（ファイル規約）に置くと、子ページで
