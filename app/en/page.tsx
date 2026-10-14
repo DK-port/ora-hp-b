@@ -22,7 +22,7 @@ const PRICE: [string, string][] = [
 const ACCESS: [string, React.ReactNode][] = [
   ["ADDRESS", "Hayashi Bldg. 3F, 1-6-2 Kajicho, Chiyoda-ku, Tokyo"],
   ["TRAIN", <>2 min walk from JR Kanda Station<br />3 min walk from Kanda Station (Tokyo Metro Ginza Line)</>],
-  ["HOURS", "19:00 – LAST, open daily"],
+  ["HOURS", "19:00 – LAST, closed on Sundays"],
   ["TEL", <a href={TEL.href} style={{ color: "var(--color-gold)" }}>{TEL.display}</a>],
 ];
 

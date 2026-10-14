@@ -186,7 +186,7 @@ export default function Home() {
                   ["住所","東京都千代田区鍛冶町1-6-2\n林ビル 3階"],
                   ["最寄り駅","JR「神田駅」徒歩2分"],
                   ["営業時間","19:00 〜 LAST"],
-                  ["定休日","年中無休"],
+                  ["定休日","日曜日"],
                   ["TEL",TEL.display],
                 ].map(([dt,dd]) => (
                   <div key={dt} style={{ display:"contents" }}>
