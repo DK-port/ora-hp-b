@@ -8,7 +8,7 @@ export const metadata = pageMetadata({
   path: "/",
   title: "O-RA ～TOKYO～ | 東京の夜を、あなただけの時間へ",
   description:
-    "O-RA ～TOKYO～ 接待・会食・特別なひとときをご提供する東京のエンターテインメントガールズバー。JR神田駅徒歩2分、19:00〜翌5:00営業。",
+    "O-RA ～TOKYO～ 接待・会食・特別なひとときをご提供する東京のエンターテインメントガールズバー。JR神田駅徒歩2分、19:00〜LAST営業。",
 });
 
 export default function Home() {
@@ -185,7 +185,7 @@ export default function Home() {
                 {[
                   ["住所","東京都千代田区鍛冶町1-6-2\n林ビル 3階"],
                   ["最寄り駅","JR「神田駅」徒歩2分"],
-                  ["営業時間","19:00 〜 翌 5:00"],
+                  ["営業時間","19:00 〜 LAST"],
                   ["定休日","年中無休"],
                   ["TEL",TEL.display],
                 ].map(([dt,dd]) => (
