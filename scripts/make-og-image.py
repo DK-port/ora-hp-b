@@ -1,7 +1,7 @@
 """OGP 画像（public/og.jpg, 1200x630）を生成する。
 
 LINE や SNS で URL を送ったときのプレビュー画像。トップのヒーローと同じ構成
-（ENTERTAINMENT DINING / O-RA / ～ TOKYO ～ / ゴールドの線 / キャッチ）で描く。
+（ENTERTAINMENT GIRLS BAR / O-RA / ～ TOKYO ～ / ゴールドの線 / キャッチ）で描く。
 
 背景写真を差し替えたら、このスクリプトを実行し直して画像を作り直す:
 
@@ -112,7 +112,7 @@ def main():
     img = background()
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
 
-    eyebrow = Line("ENTERTAINMENT DINING", 17, 0.6, 0.55)
+    eyebrow = Line("ENTERTAINMENT GIRLS BAR", 17, 0.6, 0.55)
     name = Line("O-RA", 124, 0.2, 1.0)
     city = Line("～ TOKYO ～", 26, 0.7, 0.62)
     catch = Line("東京の夜を、あなただけの時間へ", 21, 0.3, 0.66, latin=False)

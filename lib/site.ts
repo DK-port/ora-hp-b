@@ -25,7 +25,7 @@ export const TEL = {
  * LINE や Facebook は URL 単位でプレビューを長くキャッシュするので、
  * 画像を差し替えたら OG_IMAGE_VERSION を上げて URL を変える。
  */
-const OG_IMAGE_VERSION = 1;
+const OG_IMAGE_VERSION = 2;   // 2: 2026-10-14 業態の表記を ENTERTAINMENT GIRLS BAR に
 export const OG_IMAGE = {
   url: `/og.jpg?v=${OG_IMAGE_VERSION}`,
   width: 1200,

@@ -8,7 +8,7 @@ export const metadata = pageMetadata({
   path: "/",
   title: "O-RA ～TOKYO～ | 東京の夜を、あなただけの時間へ",
   description:
-    "O-RA ～TOKYO～ 接待・会食・特別なひとときをご提供する東京のエンターテインメントダイニング。JR神田駅徒歩2分、19:00〜翌5:00営業。",
+    "O-RA ～TOKYO～ 接待・会食・特別なひとときをご提供する東京のエンターテインメントガールズバー。JR神田駅徒歩2分、19:00〜翌5:00営業。",
 });
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
           animation:"heroFade 2s cubic-bezier(0.25,0.46,0.45,0.94) both",
         }}>
           <p style={{ fontFamily:"var(--font-display)", fontSize:11, letterSpacing:"0.6em", color:"rgba(255,255,255,0.55)", marginBottom:28 }}>
-            ENTERTAINMENT DINING
+            ENTERTAINMENT GIRLS BAR
           </p>
           <h1 style={{
             fontFamily:"var(--font-display)", fontWeight:300,

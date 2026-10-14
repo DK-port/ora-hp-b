@@ -7,7 +7,7 @@ import { OG_IMAGE, SITE_URL, baseOpenGraph } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "O-RA ～TOKYO～ | 東京の夜を、あなただけの時間へ",
-  description: "O-RA ～TOKYO～ 接待・会食・特別なひとときをご提供する東京のエンターテインメントダイニング",
+  description: "O-RA ～TOKYO～ 接待・会食・特別なひとときをご提供する東京のエンターテインメントガールズバー",
   // url は入れない（入れると全ページに継承される）。各ページは pageMetadata() で上書きする
   openGraph: { ...baseOpenGraph },
   twitter: { card: "summary_large_image", images: [OG_IMAGE.url] },

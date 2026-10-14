@@ -5,7 +5,7 @@ export const metadata = pageMetadata({
   path: "/en",
   title: "English | O-RA TOKYO",
   description:
-    "O-RA TOKYO — an entertainment dining bar in Kanda, Tokyo. Grand opening Friday, October 16, 2026. Price, access, hours and reservations.",
+    "O-RA TOKYO — an entertainment girls bar in Kanda, Tokyo. Grand opening Friday, October 16, 2026. Price, access, hours and reservations.",
   locale: "en_US",
 });
 
@@ -57,7 +57,7 @@ export default function EnglishPage() {
       `}</style>
 
       <div className="page-hero">
-        <span className="page-hero-eyebrow">ENTERTAINMENT DINING</span>
+        <span className="page-hero-eyebrow">ENTERTAINMENT GIRLS BAR</span>
         <h1 className="page-hero-title">O<span className="en-hyphen">-</span>RA TOKYO</h1>
         <p style={{ marginTop: 18, fontSize: 13, letterSpacing: "0.18em", color: "var(--color-muted-dk)" }}>
           Kanda, Tokyo
