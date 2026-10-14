@@ -14,7 +14,9 @@ const PRICE: [string, string][] = [
   ["Extension, each 20 minutes", "¥2,000"],
   ["Cast request", "¥1,500 – ¥2,000"],
   ["Drink for a cast", "from ¥1,500"],
-  ["Champagne / tequila shots", "from ¥1,500"],
+  // 2026-10-14 POS のメニューに合わせた（ショット ¥2,000〜¥2,500、シャンパン ¥30,000〜）
+  ["Tequila shots", "from ¥2,000"],
+  ["Champagne", "from ¥30,000"],
 ];
 
 const ACCESS: [string, React.ReactNode][] = [
