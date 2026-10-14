@@ -1,5 +1,5 @@
 import ScrollFade from "@/components/ScrollFade";
-import { LINE_URL, pageMetadata } from "@/lib/site";
+import { CARDS, LINE_URL, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/system",
@@ -41,6 +41,27 @@ export default function SystemPage() {
               </ScrollFade>
             </div>
           ))}
+
+          {/* 2026-10-14 DK「クレジットのみ QR不要」。決済端末の管理画面で「ご利用できます」のカードブランドだけ。
+              各社のカラーのロゴは黒と金の画面で浮くので、ブランド名を文字で並べる */}
+          <div style={{ marginBottom: 64 }}>
+            <ScrollFade>
+              <p style={{ fontFamily:"var(--font-serif)", fontSize:14, letterSpacing:"0.3em", color:"var(--color-gold)", borderBottom:"1px solid var(--color-border-dk)", paddingBottom:12, marginBottom:24 }}>お支払い方法</p>
+              <table style={{ width:"100%", borderCollapse:"collapse" }}>
+                <tbody>
+                  <tr>
+                    <td style={{ padding:"16px 20px", borderBottom:"1px solid var(--color-border-dk)", fontSize:14, color:"var(--color-gold)", fontFamily:"var(--font-serif)", width:"40%", background:"rgba(201,168,76,0.04)", verticalAlign:"top", wordBreak:"keep-all" }}>
+                      {/* 390 幅だと「クレジットカ／ード」で折れたので、折るならここ */}
+                      クレジット<wbr />カード
+                    </td>
+                    <td style={{ padding:"16px 20px", borderBottom:"1px solid var(--color-border-dk)", fontSize:14, color:"var(--color-text-dark)", lineHeight:1.9 }}>
+                      {CARDS.map(c => <span key={c} style={{ display:"inline-block", marginRight:"1em" }}>{c}</span>)}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </ScrollFade>
+          </div>
 
           <ScrollFade>
             <div style={{ padding:"28px 32px", border:"1px solid var(--color-border-dk)", background:"var(--color-dark-2)", marginBottom:48 }}>

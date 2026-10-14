@@ -1,5 +1,5 @@
 import ScrollFade from "@/components/ScrollFade";
-import { LINE_URL, TEL, pageMetadata } from "@/lib/site";
+import { CARDS, LINE_URL, TEL, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/en",
@@ -100,6 +100,7 @@ export default function EnglishPage() {
               <p className="en-note">
                 — Tax 10%, service charge 10% and table charge 10% are added to the above.<br />
                 — The 10% table charge is waived for cash payments.<br />
+                — Credit cards accepted: {CARDS.join(", ")}.<br />
                 — Guests must be 20 years or older.
               </p>
             </div>

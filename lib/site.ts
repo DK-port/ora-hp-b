@@ -20,6 +20,12 @@ export const TEL = {
 };
 
 /**
+ * 使えるクレジットカード。料金ページ（/system）と英語ページで使う。
+ * 2026-10-14 に決済端末の管理画面で「ご利用できます」だったブランド。QR 決済は載せない（DK「クレジットのみ QR不要」）。
+ */
+export const CARDS = ["VISA", "Mastercard", "JCB", "American Express", "Diners Club", "DISCOVER"];
+
+/**
  * OG 画像（LINE や SNS で URL を送ったときのプレビュー）。scripts/make-og-image.py で生成する。
  *
  * LINE や Facebook は URL 単位でプレビューを長くキャッシュするので、
