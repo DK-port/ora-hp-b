@@ -18,7 +18,17 @@ type News = {
   link?: { href: string; label: string };
 };
 
+// 新しいものを上に足す
 const news: News[] = [
+  {
+    id: 4,
+    date: "2026-10-20",
+    category: "イベント",
+    title: "10月30日（金）・31日（土）ハロウィンイベント",
+    body: "O-RA ～TOKYO～ で初めてのハロウィン。キャストが特別な衣装でお迎えいたします。"
+      + "2日間だけの夜を、ぜひお楽しみください。ご予約は公式LINEにて承っております。",
+    link: { href: LINE_URL, label: "公式LINEでご予約" },
+  },
   {
     id: 1,
     date: "2026-09-24",
