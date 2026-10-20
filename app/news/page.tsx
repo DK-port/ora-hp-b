@@ -16,6 +16,8 @@ type News = {
   body: string;
   /** 本文の下に出す導線（公式LINEなど）。無くてもよい */
   link?: { href: string; label: string };
+  /** 記事の画像（public/ からのパスと実寸）。PC では本文の右、スマホでは本文の下に出す。無くてもよい */
+  image?: { src: string; alt: string; width: number; height: number };
 };
 
 // 新しいものを上に足す
@@ -28,6 +30,8 @@ const news: News[] = [
     body: "O-RA ～TOKYO～ で初めてのハロウィン。キャストが特別な衣装でお迎えいたします。"
       + "2日間だけの夜を、ぜひお楽しみください。ご予約は公式LINEにて承っております。",
     link: { href: LINE_URL, label: "公式LINEでご予約" },
+    // 元は Claude-開発\O-RA\ハロウィン\O-RA_ハロウィン_20261030_実写風.jpg（1414×2000）を長辺 1200 に
+    image: { src: "/images/news/halloween-2026.jpg", alt: "ハロウィンイベント 10.30 FRI — 10.31 SAT のポスター", width: 848, height: 1200 },
   },
   {
     id: 1,
@@ -69,7 +73,8 @@ export default function NewsPage() {
         <div className="section-inner">
           {news.map((item, i) => (
             <ScrollFade key={item.id} delay={i * 0.1}>
-              <article style={{ borderBottom:"1px solid var(--color-border)", padding:"36px 0", ...(i === 0 ? { borderTop:"1px solid var(--color-border)" } : {}) }}>
+              <article className={item.image ? "news-item has-image" : "news-item"} style={{ borderBottom:"1px solid var(--color-border)", padding:"36px 0", ...(i === 0 ? { borderTop:"1px solid var(--color-border)" } : {}) }}>
+                <div>
                 <div style={{ display:"flex", alignItems:"center", gap:16, marginBottom:12 }}>
                   <time style={{ fontSize:12, letterSpacing:"0.1em", color:"var(--color-muted)", fontFamily:"var(--font-serif)" }}>{item.date}</time>
                   <span style={{ fontSize:10, letterSpacing:"0.2em", color:"var(--color-gold)", border:"1px solid var(--color-border)", padding:"3px 10px" }}>{item.category}</span>
@@ -83,11 +88,28 @@ export default function NewsPage() {
                     color:"var(--color-gold)", borderBottom:"1px solid rgba(201,168,76,0.45)", paddingBottom:4,
                   }}>{item.link.label} →</a>
                 )}
+                </div>
+                {item.image && (
+                  // 押すと大きい画像を新しいタブで開く
+                  <a href={item.image.src} target="_blank" rel="noopener noreferrer" className="news-image">
+                    <img src={item.image.src} alt={item.image.alt} width={item.image.width} height={item.image.height}
+                      loading="lazy" style={{ display:"block", width:"100%", height:"auto", border:"1px solid var(--color-border)" }} />
+                  </a>
+                )}
               </article>
             </ScrollFade>
           ))}
         </div>
       </section>
+      <style>{`
+        /* 画像のある記事: PC は本文の右に縦長の画像、スマホは本文の下 */
+        .news-item.has-image{ display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:40px; align-items:start; }
+        .news-image{ display:block; }
+        @media (max-width:768px){
+          .news-item.has-image{ grid-template-columns:minmax(0,1fr); gap:24px; }
+          .news-image{ max-width:320px; }
+        }
+      `}</style>
     </main>
   );
 }
