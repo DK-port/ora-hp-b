@@ -1,7 +1,7 @@
 import Link from "next/link";
 import HeroVideo from "@/components/HeroVideo";
 import ScrollFade from "@/components/ScrollFade";
-import { casts } from "@/data/cast";
+import { CastPreview } from "@/components/PokeparaCast";
 import { TEL, galleryPhoto, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
@@ -91,23 +91,9 @@ export default function Home() {
         <div className="section-inner">
           <ScrollFade><span className="section-eyebrow">CAST</span></ScrollFade>
           <ScrollFade delay={0.15}><h2 className="section-title" style={{ color:"var(--color-text-dark)" }}>在籍キャスト</h2></ScrollFade>
-          <div style={{
-            display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:16, marginBottom:64,
-          }}>
-            {casts.slice(0,4).map((cast,i) => (
-              <ScrollFade key={cast.id} delay={i*0.1}>
-                <article style={{ border:"1px solid var(--color-border-dk)", overflow:"hidden" }}>
-                  <div style={{ aspectRatio:"2/3", background:"#1e1e1e", overflow:"hidden" }}>
-                    <img src={cast.img} alt={cast.name} loading="lazy"
-                      style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
-                  </div>
-                  <div style={{ padding:"20px 18px", borderTop:"1px solid var(--color-border-dk)", textAlign:"center" }}>
-                    <p style={{ fontFamily:"var(--font-display)", fontSize:20, fontWeight:300, letterSpacing:"0.2em", color:"var(--color-text-dark)", marginBottom:6 }}>{cast.name}</p>
-                    <p style={{ fontSize:11, color:"var(--color-muted-dk)", letterSpacing:"0.1em" }}>{cast.catch}</p>
-                  </div>
-                </article>
-              </ScrollFade>
-            ))}
+          {/* 本日出勤のキャスト（ポケパラから）。2026-10-22 までは data/cast.ts の仮のキャストだった */}
+          <div style={{ marginBottom:64 }}>
+            <CastPreview />
           </div>
           <ScrollFade className="section-cta">
             <Link href="/cast" className="btn">VIEW ALL CAST</Link>
