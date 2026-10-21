@@ -26,6 +26,17 @@ export const TEL = {
 export const CARDS = ["VISA", "Mastercard", "JCB", "American Express", "Diners Club", "DISCOVER"];
 
 /**
+ * ポケパラ（キャスト一覧・ブログの更新元）。sid は O-RA の店舗番号。
+ * CAST ページに、ポケパラの管理画面「ウィジェット」で配っている埋め込みタグを置く（components/PokeparaWidget.tsx）。
+ * castCount は女の子一覧の高さを決めるための人数。人数が変わったらここを直す
+ * （直さなくても壊れはしない。増えたら枠の中でスクロール、減ったら枠の下が空く）。
+ */
+export const POKEPARA = {
+  sid: "24352",
+  castCount: 11,   // 2026-10-22 時点
+};
+
+/**
  * OG 画像（LINE や SNS で URL を送ったときのプレビュー）。scripts/make-og-image.py で生成する。
  *
  * LINE や Facebook は URL 単位でプレビューを長くキャッシュするので、
