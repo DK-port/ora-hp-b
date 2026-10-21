@@ -31,6 +31,19 @@ export type PokeparaData = {
   blogs: PokeparaBlog[];
 };
 
+/** お店からのニュース（ポケパラの「ピックアップニュース」） */
+export type PokeparaNews = {
+  id: string;
+  title: string;
+  /** 2026-10-18 の形 */
+  date: string;
+  /** 本文（改行は \n） */
+  body: string;
+  /** 記事の画像（動画の記事はそのサムネイル）。無ければ null */
+  image: string | null;
+  url: string;
+};
+
 export const pokeparaUrls = (sid: string) => ({
   list: `https://www.pokepara.jp/___/widget/gal_list.html?sid=${sid}&width=840`,
   blog: `https://www.pokepara.jp/___/widget/gal_blog.aspx?sid=${sid}&width=840&photo=&count=12&gid=0`,
@@ -38,17 +51,24 @@ export const pokeparaUrls = (sid: string) => ({
 
 const ENTITIES: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " " };
 
+function decode(s: string) {
+  return s.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e: string) => {
+    if (e[0] === "#") return String.fromCodePoint(e[1].toLowerCase() === "x" ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10));
+    return ENTITIES[e.toLowerCase()] ?? m;
+  });
+}
+
 /** タグを外し、&amp; などを戻し、空白を詰める */
 function text(html: string | null) {
   if (!html) return "";
-  return html
-    .replace(/<[^>]*>/g, "")
-    .replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e: string) => {
-      if (e[0] === "#") return String.fromCodePoint(e[1].toLowerCase() === "x" ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10));
-      return ENTITIES[e.toLowerCase()] ?? m;
-    })
-    .replace(/\s+/g, " ")
-    .trim();
+  return decode(html.replace(/<[^>]*>/g, "")).replace(/\s+/g, " ").trim();
+}
+
+/** 本文用。<br> を改行にして、行ごとに空白を詰める（空行は1つまで） */
+function textLines(html: string) {
+  return decode(html.replace(/<br\s*\/?>/gi, "\n").replace(/<[^>]*>/g, ""))
+    .split("\n").map(l => l.replace(/\s+/g, " ").trim()).join("\n")
+    .replace(/\n{3,}/g, "\n\n").trim();
 }
 
 function pick(block: string, re: RegExp) {
@@ -105,4 +125,33 @@ export function parseBlog(html: string): PokeparaBlog[] {
       url,
     };
   }).filter(p => p.url && p.title);
+}
+
+/**
+ * お店のニュース一覧（店舗ページの pickupnews/）。記事1件が <li id="no番号"> 1つで、本文まで載っている。
+ * ニュースが1件も無い店もあるので、読めなくても空で返す（NEWS ページは HP で書いた記事だけになる）
+ */
+export function parseNews(html: string): PokeparaNews[] {
+  const mark = '<div id="shopnews">';
+  if (!html.includes(mark)) return [];
+  const list = before(from(html, mark), '<div class="main_contents_wrapper');
+  // split に括弧を入れると [前, 番号1, 中身1, 番号2, 中身2, …] になる
+  const parts = list.split(/<li id="no(\d+)">/);
+  const news: PokeparaNews[] = [];
+  for (let i = 1; i + 1 < parts.length; i += 2) {
+    const b = before(parts[i + 1], "</li>");
+    const ymd = b.match(/class="time">\s*(\d{4})年(\d{1,2})月(\d{1,2})日/);
+    const bodyHtml = from(b, 'class="wordBreak text">');
+    // 本文の頭の画像・動画の枠は文字が無いので本文には残らない。画像だけ拾う（/Common/ は再生ボタンなどの部品）
+    const image = [...bodyHtml.matchAll(/<img src="([^"]+)"/g)].map(m => m[1]).find(src => !src.includes("/Common/"));
+    news.push({
+      id: parts[i],
+      title: text(pick(b, /<h4>([\s\S]*?)<\/h4>/)),
+      date: ymd ? `${ymd[1]}-${ymd[2].padStart(2, "0")}-${ymd[3].padStart(2, "0")}` : "",
+      body: textLines(bodyHtml.replace(/^class="wordBreak text">/, "")),
+      image: image ? image.replace(/_l\.jpg$/, "_m.jpg") : null,
+      url: pick(b, /<h4><a href="([^"]+)"/) ?? "",
+    });
+  }
+  return news.filter(n => n.title && n.date && n.url);
 }

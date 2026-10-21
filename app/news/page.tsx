@@ -1,4 +1,4 @@
-import ScrollFade from "@/components/ScrollFade";
+import NewsList, { type News } from "@/components/NewsList";
 import { LINE_URL, TEL, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
@@ -8,19 +8,7 @@ export const metadata = pageMetadata({
     "O-RA ～TOKYO～ からのお知らせ。2026年10月16日（金）グランドオープン。男性スタッフ・女性フロアスタッフを募集しております。",
 });
 
-type News = {
-  id: number;
-  date: string;
-  category: string;
-  title: string;
-  body: string;
-  /** 本文の下に出す導線（公式LINEなど）。無くてもよい */
-  link?: { href: string; label: string };
-  /** 記事の画像（public/ からのパスと実寸）。PC では本文の右、スマホでは本文の下に出す。無くてもよい */
-  image?: { src: string; alt: string; width: number; height: number };
-};
-
-// 新しいものを上に足す
+// HP で書く記事。新しいものを上に足す。ポケパラの「お店からのニュース」は NewsList が日付順に混ぜる
 const news: News[] = [
   {
     id: 4,
@@ -71,45 +59,9 @@ export default function NewsPage() {
       </div>
       <section className="section">
         <div className="section-inner">
-          {news.map((item, i) => (
-            <ScrollFade key={item.id} delay={i * 0.1}>
-              <article className={item.image ? "news-item has-image" : "news-item"} style={{ borderBottom:"1px solid var(--color-border)", padding:"36px 0", ...(i === 0 ? { borderTop:"1px solid var(--color-border)" } : {}) }}>
-                <div>
-                <div style={{ display:"flex", alignItems:"center", gap:16, marginBottom:12 }}>
-                  <time style={{ fontSize:12, letterSpacing:"0.1em", color:"var(--color-muted)", fontFamily:"var(--font-serif)" }}>{item.date}</time>
-                  <span style={{ fontSize:10, letterSpacing:"0.2em", color:"var(--color-gold)", border:"1px solid var(--color-border)", padding:"3px 10px" }}>{item.category}</span>
-                </div>
-                <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(16px,2vw,20px)", fontWeight:300, letterSpacing:"0.05em", marginBottom:12, lineHeight:1.6 }}>{item.title}</h3>
-                <p style={{ fontSize:14, color:"var(--color-muted)", lineHeight:1.9, maxWidth:680 }}>{item.body}</p>
-                {item.link && (
-                  // 外部リンクなので新しいタブで開く
-                  <a href={item.link.href} target="_blank" rel="noopener noreferrer" style={{
-                    display:"inline-block", marginTop:18, fontSize:12, letterSpacing:"0.15em",
-                    color:"var(--color-gold)", borderBottom:"1px solid rgba(201,168,76,0.45)", paddingBottom:4,
-                  }}>{item.link.label} →</a>
-                )}
-                </div>
-                {item.image && (
-                  // 押すと大きい画像を新しいタブで開く
-                  <a href={item.image.src} target="_blank" rel="noopener noreferrer" className="news-image">
-                    <img src={item.image.src} alt={item.image.alt} width={item.image.width} height={item.image.height}
-                      loading="lazy" style={{ display:"block", width:"100%", height:"auto", border:"1px solid var(--color-border)" }} />
-                  </a>
-                )}
-              </article>
-            </ScrollFade>
-          ))}
+          <NewsList items={news} />
         </div>
       </section>
-      <style>{`
-        /* 画像のある記事: PC は本文の右に縦長の画像、スマホは本文の下 */
-        .news-item.has-image{ display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:40px; align-items:start; }
-        .news-image{ display:block; }
-        @media (max-width:768px){
-          .news-item.has-image{ grid-template-columns:minmax(0,1fr); gap:24px; }
-          .news-image{ max-width:320px; }
-        }
-      `}</style>
     </main>
   );
 }
