@@ -115,7 +115,7 @@ def main():
     eyebrow = Line("ENTERTAINMENT GIRLS BAR", 17, 0.6, 0.55)
     name = Line("O-RA", 124, 0.2, 1.0)
     city = Line("～ TOKYO ～", 26, 0.7, 0.62)
-    catch = Line("東京の夜を、あなただけの時間へ", 21, 0.3, 0.66, latin=False)
+    catch = Line("今夜、オーラをまとう。", 21, 0.3, 0.66, latin=False)
     rule_h = 44
 
     blocks = [(eyebrow, 24), (name, 16), (city, 34), ("rule", 26), (catch, 0)]

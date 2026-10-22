@@ -6,7 +6,7 @@ import { TEL, galleryPhoto, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/",
-  title: "O-RA ～TOKYO～ | 東京の夜を、あなただけの時間へ",
+  title: "O-RA ～TOKYO～ | 今夜、オーラをまとう",
   description:
     "O-RA ～TOKYO～ 接待・会食・特別なひとときをご提供する東京のエンターテインメントガールズバー。JR神田駅徒歩2分、19:00〜LAST営業。",
 });
@@ -41,7 +41,7 @@ export default function Home() {
           </p>
           <div style={{ width:1, height:48, background:"var(--color-gold)", marginBottom:28 }} />
           <p style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(12px,1.5vw,15px)", letterSpacing:"0.3em", color:"rgba(255,255,255,0.6)" }}>
-            東京の夜を、あなただけの時間へ
+            今夜、オーラをまとう。
           </p>
         </div>
         <div style={{
@@ -68,17 +68,19 @@ export default function Home() {
 
       {/* ② コンセプト — ライトセクション */}
       <section className="section section-light">
-        <div className="section-inner" style={{ textAlign:"center", maxWidth:760, margin:"0 auto", padding:"0 64px" }}>
+        {/* 左右の余白は .section-inner のまま（PC 64px・スマホ 28px）。前は 64px を直書きしていて、スマホで文が細切れに折れた */}
+        <div className="section-inner" style={{ textAlign:"center", maxWidth:760, margin:"0 auto" }}>
           <ScrollFade>
             <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:40 }}>
               <div className="gold-line gold-line-center" />
-              <p style={{
+              {/* 読点・句点の区切り（span）ごとに折り返す。PC もスマホも4行になる */}
+              <p className="concept-copy" style={{
                 fontFamily:"var(--font-display)", fontWeight:300,
-                fontSize:"clamp(18px,2.5vw,26px)", letterSpacing:"0.15em",
+                fontSize:"clamp(16px,4.6vw,26px)", letterSpacing:"0.15em",
                 lineHeight:2.0, color:"var(--color-text-light)",
               }}>
-                洗練された空間と、心を解きほぐすひとときを。<br />
-                選ばれた夜の舞台で、特別な時間をお届けします。
+                <span>赤と金に照らされた空間で、</span><span>心ほどける会話とショーを。</span><br />
+                <span>ここでしか出会えない輝きが、</span><span>あなたを待っています。</span>
               </p>
               <div className="gold-line gold-line-center" />
             </div>
