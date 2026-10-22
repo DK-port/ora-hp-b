@@ -7,8 +7,8 @@ import { LINE_URL } from "@/lib/site";
 
 const navLinks = [
   { href:"/cast",    label:"CAST" },
-  { href:"/system",  label:"SYSTEM" },
   { href:"/gallery", label:"GALLERY" },
+  { href:"/system",  label:"SYSTEM" },
   { href:"/access",  label:"ACCESS" },
   { href:"/news",    label:"NEWS" },
   { href:"/en",      label:"EN" },      // 英語1ページ

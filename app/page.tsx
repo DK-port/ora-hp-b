@@ -101,7 +101,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ④ システム — ライトセクション */}
+      {/* ④ ギャラリー — ダークセクション・フルワイド。2026-10-22 DK の指示でシステムと入れ替えた。
+          上のキャストも黒なので、つなぎ目に細い金の線を引く */}
+      <section className="section section-dark" style={{ borderTop:"1px solid var(--color-border-dk)" }}>
+        <div className="section-inner">
+          <ScrollFade><span className="section-eyebrow">GALLERY</span></ScrollFade>
+          <ScrollFade delay={0.15}><h2 className="section-title" style={{ color:"var(--color-text-dark)" }}>ギャラリー</h2></ScrollFade>
+          <ScrollFade>
+            {/* 並び方（PC とモバイルで違う）は globals.css の .home-gallery */}
+            <div className="home-gallery">
+              {/* 大きい1枚。写真は枠に敷くだけにして、枠の高さを写真に合わせない
+                  （縦の写真だと行が縦に伸び、右の4枚の下に隙間が出た。2026-10-09 実写に差し替えたとき） */}
+              <div className="home-gallery-main" style={{ background:"#1e1e1e", overflow:"hidden", position:"relative" }}>
+                <img src={galleryPhoto(1)} alt="店内の様子 1" loading="lazy"
+                  style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
+              </div>
+              {[2,3,4,5].map(n => (
+                <div key={n} style={{ background:"#1a1a1a", aspectRatio:"4/3", overflow:"hidden" }}>
+                  <img src={galleryPhoto(n)} alt={`店内の様子 ${n}`} loading="lazy"
+                    style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
+                </div>
+              ))}
+            </div>
+          </ScrollFade>
+          <ScrollFade className="section-cta">
+            <Link href="/gallery" className="btn">VIEW GALLERY</Link>
+          </ScrollFade>
+        </div>
+      </section>
+
+      {/* ⑤ システム — ライトセクション */}
       <section className="section section-light">
         <div className="section-inner">
           <ScrollFade><span className="section-eyebrow" style={{ color:"var(--color-muted-lt)" }}>SYSTEM</span></ScrollFade>
@@ -128,34 +157,6 @@ export default function Home() {
           </ScrollFade>
           <ScrollFade className="section-cta">
             <Link href="/system" className="btn btn-dark">詳細を見る</Link>
-          </ScrollFade>
-        </div>
-      </section>
-
-      {/* ⑤ ギャラリー — ダークセクション・フルワイド */}
-      <section className="section section-dark">
-        <div className="section-inner">
-          <ScrollFade><span className="section-eyebrow">GALLERY</span></ScrollFade>
-          <ScrollFade delay={0.15}><h2 className="section-title" style={{ color:"var(--color-text-dark)" }}>ギャラリー</h2></ScrollFade>
-          <ScrollFade>
-            {/* 並び方（PC とモバイルで違う）は globals.css の .home-gallery */}
-            <div className="home-gallery">
-              {/* 大きい1枚。写真は枠に敷くだけにして、枠の高さを写真に合わせない
-                  （縦の写真だと行が縦に伸び、右の4枚の下に隙間が出た。2026-10-09 実写に差し替えたとき） */}
-              <div className="home-gallery-main" style={{ background:"#1e1e1e", overflow:"hidden", position:"relative" }}>
-                <img src={galleryPhoto(1)} alt="店内の様子 1" loading="lazy"
-                  style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
-              </div>
-              {[2,3,4,5].map(n => (
-                <div key={n} style={{ background:"#1a1a1a", aspectRatio:"4/3", overflow:"hidden" }}>
-                  <img src={galleryPhoto(n)} alt={`店内の様子 ${n}`} loading="lazy"
-                    style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
-                </div>
-              ))}
-            </div>
-          </ScrollFade>
-          <ScrollFade className="section-cta">
-            <Link href="/gallery" className="btn">VIEW GALLERY</Link>
           </ScrollFade>
         </div>
       </section>

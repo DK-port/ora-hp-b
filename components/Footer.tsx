@@ -29,8 +29,8 @@ export default function Footer() {
             }}>日本語のページへ / Japanese</Link>
           ) : [
             { href: "/cast", label: "CAST" },
-            { href: "/system", label: "SYSTEM" },
             { href: "/gallery", label: "GALLERY" },
+            { href: "/system", label: "SYSTEM" },
             { href: "/access", label: "ACCESS" },
             { href: "/news", label: "NEWS" },
             { href: "/en", label: "EN" },
