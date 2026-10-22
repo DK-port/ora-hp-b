@@ -29,7 +29,7 @@ export default function Home() {
           animation:"heroFade 2s cubic-bezier(0.25,0.46,0.45,0.94) both",
         }}>
           <p style={{ fontFamily:"var(--font-display)", fontSize:11, letterSpacing:"0.6em", color:"rgba(255,255,255,0.55)", marginBottom:28 }}>
-            ENTERTAINMENT GIRLS BAR
+            BUNNY CLUB · EST. 2026
           </p>
           <h1 style={{
             fontFamily:"var(--font-display)", fontWeight:300,

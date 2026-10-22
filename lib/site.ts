@@ -41,7 +41,7 @@ export const POKEPARA = {
  * LINE や Facebook は URL 単位でプレビューを長くキャッシュするので、
  * 画像を差し替えたら OG_IMAGE_VERSION を上げて URL を変える。
  */
-const OG_IMAGE_VERSION = 3;   // 3: 2026-10-23 一言を「今夜、オーラをまとう。」に
+const OG_IMAGE_VERSION = 4;   // 4: 2026-10-23 一列目を BUNNY CLUB · EST. 2026 に
 export const OG_IMAGE = {
   url: `/og.jpg?v=${OG_IMAGE_VERSION}`,
   width: 1200,
