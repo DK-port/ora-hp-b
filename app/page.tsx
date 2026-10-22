@@ -79,8 +79,8 @@ export default function Home() {
                 fontSize:"clamp(16px,4.6vw,26px)", letterSpacing:"0.15em",
                 lineHeight:2.0, color:"var(--color-text-light)",
               }}>
-                <span>赤と金に照らされた空間で、</span><span>心ほどける会話とショーを。</span><br />
-                <span>ここでしか出会えない輝きが、</span><span>あなたを待っています。</span>
+                <span>バニーたちの笑顔と乾杯、</span><span>そして真紅のポールダンス。</span><br />
+                <span>毎週木・金・土、ショーの夜。</span><span>ここでしか出会えない輝きを。</span>
               </p>
               <div className="gold-line gold-line-center" />
             </div>
