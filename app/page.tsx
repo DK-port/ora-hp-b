@@ -29,7 +29,7 @@ export default function Home() {
           animation:"heroFade 2s cubic-bezier(0.25,0.46,0.45,0.94) both",
         }}>
           <p style={{ fontFamily:"var(--font-display)", fontSize:11, letterSpacing:"0.6em", color:"rgba(255,255,255,0.55)", marginBottom:28 }}>
-            BUNNY CLUB · EST. 2026
+            ENTERTAINMENT GIRLS BAR
           </p>
           <h1 style={{
             fontFamily:"var(--font-display)", fontWeight:300,
@@ -40,8 +40,9 @@ export default function Home() {
             ～ TOKYO ～
           </p>
           <div style={{ width:1, height:48, background:"var(--color-gold)", marginBottom:28 }} />
-          <p style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(12px,1.5vw,15px)", letterSpacing:"0.3em", color:"rgba(255,255,255,0.6)" }}>
-            今夜、オーラをまとう。
+          {/* 2026-10-23 DK: 一列目は ENTERTAINMENT GIRLS BAR に戻し、ここ（前は「今夜、オーラをまとう。」）に BUNNY CLUB */}
+          <p style={{ fontFamily:"var(--font-display)", fontSize:"clamp(12px,1.6vw,16px)", letterSpacing:"0.4em", color:"rgba(255,255,255,0.7)" }}>
+            BUNNY CLUB · EST. 2026
           </p>
         </div>
         <div style={{
