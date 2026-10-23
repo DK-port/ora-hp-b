@@ -6,7 +6,7 @@ import { TEL, galleryPhoto, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   path: "/",
-  title: "O-RA ～TOKYO～ | 今夜、オーラをまとう",
+  title: "O-RA ～TOKYO～ | BUNNY CLUB · EST. 2026",
   description:
     "O-RA ～TOKYO～ 接待・会食・特別なひとときをご提供する東京のエンターテインメントガールズバー。JR神田駅徒歩2分、19:00〜LAST営業。",
 });
