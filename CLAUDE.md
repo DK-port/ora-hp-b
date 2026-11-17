@@ -5,7 +5,7 @@
 O-RA ～TOKYO～（神田）の公式HP。Next.js の静的書き出し（`output: 'export'`）。
 
 **経緯・決定事項は Vault の `Projects/ora-website.md`、店舗情報とブランドの決まりは `Projects/ora.md`、
-過去の失敗は `Knowledge/mistakes-ora.md`**（Vault は `C:\Users\starx\OneDrive\claude\Claude-開発\OBSIDIAN関連\`）。
+過去の失敗は `Knowledge/mistakes-ora.md`**（Vault は `C:\Users\starx\OneDrive\claude\Claude-開発\Obsidian\`）。
 
 ## 公開の仕組み（2026-09-19〜）
 
