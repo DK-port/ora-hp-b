@@ -14,7 +14,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-LOGO = Path(r"C:\Users\starx\OneDrive\o-ra tokyo\サイネージ\signage_img\logo_ora_white.png")
+LOGO = Path(r"C:\Users\starx\OneDrive\o-ra tokyo\サイネージ\システム\ロゴ\logo_ora_white.png")
 OUT = ROOT / "public" / "images" / "cast" / "cast-07.jpg"
 
 W, H = 747, 1000  # 他のキャスト写真と同じ（3:4）

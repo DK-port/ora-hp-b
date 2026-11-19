@@ -24,7 +24,7 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent
-LOGO_TYPE = Path(r"C:\Users\starx\OneDrive\o-ra tokyo\サイネージ\signage_img\logo_type.png")
+LOGO_TYPE = Path(r"C:\Users\starx\OneDrive\o-ra tokyo\サイネージ\システム\ロゴ\logo_type.png")
 
 DARK = (14, 14, 14)  # --color-dark
 GOLD = (201, 168, 76)  # --color-gold
