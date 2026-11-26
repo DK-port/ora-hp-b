@@ -11,6 +11,17 @@ export const metadata = pageMetadata({
 // HP で書く記事。新しいものを上に足す。ポケパラの「お店からのニュース」は NewsList が日付順に混ぜる
 const news: News[] = [
   {
+    id: 5,
+    date: "2026-11-26",
+    category: "イベント",
+    title: "12月24日（木）・25日（金）クリスマスイベント「1st Time CHRISTMAS」",
+    body: "O-RA ～TOKYO～ で迎える初めてのクリスマス。キャストがサンタ衣装のバニー姿でお迎えいたします。"
+      + "2日間だけの特別な夜を、ぜひお楽しみください。ご予約は公式LINEにて承っております。",
+    link: { href: LINE_URL, label: "公式LINEでご予約" },
+    // 元は project-files signage/christmas/poster_C2_dk.jpg（937×1678）を長辺 1200 に
+    image: { src: "/images/news/christmas-2026.jpg", alt: "1st Time CHRISTMAS 12月24・25日のポスター", width: 670, height: 1200 },
+  },
+  {
     id: 4,
     date: "2026-10-20",
     category: "イベント",
